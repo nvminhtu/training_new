@@ -4,7 +4,7 @@
   ***/
 ?>
 <div class="related_auther clearfix mt30">
-  <p class="ptitle_02">トレージン</p>
+  <p class="ptitle_02">アウトシーカーズ</p>
   <?php 
     // Create the WP_User_Query object
     $wp_user_query = new WP_User_Query(array (
@@ -49,5 +49,5 @@
         echo 'No other users found';
     }
 ?>
-  <p class="btn03 btn"><a href="<?php bloginfo('url'); ?>/user-list/">トレージン一覧</a></p>
+  <p class="btn03 btn"><a href="<?php bloginfo('url'); ?>/user-list/">メンバー 一覧</a></p>
 </div>

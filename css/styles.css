@@ -814,7 +814,7 @@ border-radius: 28px;}
 	width:30px;
 	height:30px;
 	content:"＞";
-	left:-35px;
+	left:-30px;
 	top:-5px;
 }
 .link01 a:hover{
@@ -1039,8 +1039,8 @@ border-radius: 28px;}
   color: #2980b9;
   font-size: 30px;
   position: absolute;
-  top: 7px;
-  left: 8px;
+  top: 8px;
+  left: 10px;
   cursor: pointer;
 }
 .icon-search-container .fa-times-circle {

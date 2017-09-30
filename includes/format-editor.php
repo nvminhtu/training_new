@@ -24,4 +24,35 @@ function my_mce_before_init_insert_formats( $init_array ) {
 	return $init_array;
 }
 // Attach callback to 'tiny_mce_before_init'
-add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' ); ?>
+add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' ); 
+
+
+
+function new_modify_user_table( $column ) {
+    unset($column['name']);
+    unset($column['role']);
+    unset($column['email']);
+    unset($column['posts']);
+
+    $column['fullname'] = 'Full Name';
+    $column['email'] = 'Email';
+    $column['posts'] = 'Posts';
+    return $column;
+}
+add_filter( 'manage_users_columns', 'new_modify_user_table' );
+
+function new_modify_user_table_row( $val, $column_name, $user_id ) {
+    switch ($column_name) {
+        case 'fullname' :
+        	return get_field('profile_fullname',  'user_'.$user_id);
+            break;
+        default:
+    }
+    return $val;
+}
+add_filter( 'manage_users_custom_column', 'new_modify_user_table_row', 10, 3 );
+
+
+?>
+
+

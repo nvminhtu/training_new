@@ -15,7 +15,7 @@
 						$author_id = get_the_author_meta('ID');
 						$firstname = get_the_author_meta( 'user_firstname' );
                 		$lastname = get_the_author_meta( 'user_lastname' );
-						$fullname = $lastname.' '.$firstname;
+                		$profile_fullname = get_field('profile_fullname', 'user_'. $author_id);
                 		$title_work = get_field('title_of_work', 'user_'. $author_id);
 
                 		//editor information
@@ -44,10 +44,10 @@
 		            <div class="article_detail_cm_au clearfix">
 		              <p class="cm_img">
 		                <?php if( $editor_gallery ): ?>
-					  		<a href="<?php echo get_author_posts_url( $author_id); ?>"><img src="<?php echo $editor_avatar_url; ?>" width="96" height="96" alt="<?php echo $fullname; ?>"></a>
+					  		<a href="<?php echo get_author_posts_url( $author_id); ?>"><img src="<?php echo $editor_avatar_url; ?>" width="96" height="96" alt="<?php echo $profile_fullname; ?>"></a>
 						<?php endif; ?>
 		              </p>
-		              <p class="cm_aname"><?php echo $fullname; ?></p>
+		              <p class="cm_aname"><?php echo $profile_fullname; ?></p>
 		              <p class="cm_pos"><?php echo $title_work; ?></p>
 		            </div>
 		         </div>

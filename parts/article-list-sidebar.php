@@ -21,7 +21,7 @@
             $id= get_the_ID();
             
             $author_id = $post->post_author;
-            $nicename = get_the_author_meta( 'user_nicename' );
+            $profile_fullname = get_field('profile_fullname', 'user_'. $author_id);
             $editor_gallery = get_field('profile_picture', 'user_'. $author_id);
             $editor_avatar_url = $editor_gallery[0]['sizes']['img_author_tiny'];
             
@@ -43,7 +43,7 @@
       </div>
       <div class="list_latestpost_sb_ct">
         <p class="list_latestpost_sb_title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
-        <p class="list_latestpost_sb_info clearfix"><span class="nauther01"><?php echo $nicename; ?></span><span class="nview">66,539</span></p>
+        <p class="list_latestpost_sb_info clearfix"><span class="nauther01"><?php echo $profile_fullname; ?></span><span class="nview">66,539</span></p>
       </div>
     </dd>
     <?php $i++;

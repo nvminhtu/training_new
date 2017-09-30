@@ -124,6 +124,10 @@ function remove_website_row_wpse_94963_css() {
   echo '<style>tr.user-comment-shortcuts-wrap{ display: none; }</style>';
   echo '<style>tr.user-admin-bar-front-wrap{ display: none; }</style>';
   echo '<style>tr.user-description-wrap{ display: none; }</style>';
+  echo '<style>tr.user-first-name-wrap{ display: none; }</style>';
+  echo '<style>tr.user-last-name-wrap{ display: none; }</style>';
+  echo '<style>tr.user-nickname-wrap{ display: none; }</style>';
+
 }
 add_action( 'admin_head-user-edit.php', 'remove_website_row_wpse_94963_css' );
 add_action( 'admin_head-profile.php',   'remove_website_row_wpse_94963_css' );

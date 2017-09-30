@@ -58,7 +58,7 @@
             $id = get_the_ID();
 
             $author_id = $post->post_author;
-            $nicename = get_the_author_meta( 'user_nicename' );
+            $profile_fullname = get_field('profile_fullname', 'user_'. $author_id);
             $editor_gallery = get_field('profile_picture', 'user_'. $author_id);
             $editor_avatar_url = $editor_gallery[0]['sizes']['img_author_tiny'];
 
@@ -85,7 +85,7 @@
 
                   </p>
                   <div class="pl_bottom">
-                    <p class="pl_auther"><span><img src="<?php echo $editor_avatar_url; ?>" width="28" height="28" alt="<?php echo $nicename; ?>"></span><?php echo $nicename; ?></p>
+                    <p class="pl_auther"><span><img src="<?php echo $editor_avatar_url; ?>" width="28" height="28" alt="<?php echo $profile_fullname; ?>"></span><?php echo $profile_fullname; ?></p>
                     <p class="pl_date"><?php echo $time; ?></p>
                   </div>
                 </div>

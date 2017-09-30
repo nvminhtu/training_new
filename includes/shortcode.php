@@ -63,20 +63,24 @@ function pickup_posts_func($atts) {
 		  	<dl>
 		    <dt>'.$title.'<span>'.$sub_title.'</span></dt>';
 				$return .= '<dd>';
+
+				global $post;
+	        	global $wp_query;
+	        	
 				while ( $the_query->have_posts() ) {
 					//get information
 					$the_query->the_post();
 					$time = get_the_date('Y.m.d', $post->ID);
 			        $id = get_the_ID();
 			        $author_id = $post->post_author;
-			        $nicename = get_the_author_meta( 'user_nicename',$author_id);
-			        $editor_gallery = get_field('profile_picture', 'user_'. $author_id);
+			        $profile_fullname = get_field('profile_fullname', 'user_'.$author_id);
+			        $editor_gallery = get_field('profile_picture', 'user_'.$author_id);
 			        $editor_avatar_url = $editor_gallery[0]['sizes']['img_author_tiny'];
 
 							//end information and return
 
-							$img_blog = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'img_blog_sidebar');
-	            $img_blog_src = $img_blog[0];
+					$img_blog = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'img_blog_sidebar');
+	            	$img_blog_src = $img_blog[0];
 							
 					$return .='<dd><div class="list_latestpost_sb_img">
 					        <p><a href="'.get_permalink().'">';
@@ -91,7 +95,7 @@ function pickup_posts_func($atts) {
 					      </div>
 					      <div class="list_latestpost_sb_ct">
 					        <p class="list_latestpost_sb_title"><a href="'.get_permalink().'">'.get_the_title().'</a></p>
-					        <p class="list_latestpost_sb_info clearfix"><span class="nauther01">'.$nicename.'</span>'.do_shortcode('[post-views]').'</p>
+					        <p class="list_latestpost_sb_info clearfix"><span class="nauther01">'.$profile_fullname.'</span>'.do_shortcode('[post-views]').'</p>
 					      </div></dd>';
 		}
 		$return .='</dl>
@@ -139,8 +143,8 @@ function ranking_article_func($atts) {
 	            $id= get_the_ID();
 
 	            $author_id = $post->post_author;
-	            $nicename = get_the_author_meta( 'user_nicename' );
-	            $editor_gallery = get_field('profile_picture', 'user_'. $author_id);
+	            $profile_fullname = get_field('profile_fullname', 'user_'.$author_id);
+	            $editor_gallery = get_field('profile_picture', 'user_'.$author_id);
 	            $editor_avatar_url = $editor_gallery[0]['sizes']['img_author_tiny'];
 
 	            $img_blog = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'img_blog_sidebar');
@@ -161,7 +165,7 @@ function ranking_article_func($atts) {
 	      </div>
 	      <div class="list_latestpost_sb_ct">
 	        <p class="list_latestpost_sb_title"><a href="'.get_permalink().'">'.get_the_title().'</a></p>
-	        <p class="list_latestpost_sb_info clearfix"><span class="nauther01">'.$nicename.'</span>'.do_shortcode('[post-views]').'</p>
+	        <p class="list_latestpost_sb_info clearfix"><span class="nauther01">'.$profile_fullname.'</span>'.do_shortcode('[post-views]').'</p>
 	      </div>
 	    </dd>';
 	    	$i++;

@@ -1218,7 +1218,7 @@ span.wpcf7-not-valid-tip {
 .featured_picture {
 	position: relative;
 	display: block;
-	margin: 0 auto;
+	margin: 15px auto;
 }
 .featured_picture .desc {
 	position: absolute;

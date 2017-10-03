@@ -29,9 +29,10 @@
 			$author_id = get_the_author_meta('ID');
       $img_blog = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'img_blog_list');
       $img_blog_src = $img_blog[0];
-      		$editor_gallery = get_field('profile_picture', 'user_'. $author_id);
+      $editor_gallery = get_field('profile_picture', 'user_'. $author_id);
+      
 			$editor_avatar_url = $editor_gallery[0]['sizes']['img_author_tiny'];
-			$nicename = get_the_author_meta( 'user_nicename', $author_id );
+      $profile_fullname = get_field('profile_fullname', 'user_'. $author_id);
 	?>
   		<div class="list_ct_article clearfix">
            <div class="list_ct_article_img">
@@ -64,7 +65,7 @@
                     <li class="ct_view01"><?php echo do_shortcode('[post-views]'); ?></li>
                     <li><?php if( function_exists('zilla_likes') ) zilla_likes(); ?></li>
                  </ul>
-              <p class="pl_auther"><span><img src="<?php echo $editor_avatar_url; ?>" width="28" height="28" alt=""></span><?php echo $nicename; ?></p>
+              <p class="pl_auther"><span><img src="<?php echo $editor_avatar_url; ?>" width="28" height="28" alt=""></span><?php echo $profile_fullname; ?></p>
             </div>
           </div>
         </div>

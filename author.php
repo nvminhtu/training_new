@@ -11,7 +11,7 @@
               $firstname = get_the_author_meta( 'user_firstname', $author_id );
               $lastname = get_the_author_meta( 'user_lastname', $author_id );
               $fullname = $lastname.' '.$firstname;
-              $nicename = get_the_author_meta( 'user_nicename', $author_id );
+              $profile_fullname = get_field('profile_fullname', 'user_'. $author_id);
               $description = get_field('description', 'user_'. $author_id);
               $focus_topic = get_field('focus_topic', 'user_'. $author_id);
               $promotion_video = get_field('promotion_video', 'user_'. $author_id);
@@ -118,7 +118,7 @@
           <div class="tr_top_info clearfix">
             <p class="list_ct_traijing_auther">
               <?php echo $fullname; ?>
-              <span><?php echo $nicename; ?></span>
+              <span><?php echo $profile_fullname; ?></span>
             </p>
             <p class="list_ct_traijing_txt">
               <?php echo $description; ?>
@@ -187,7 +187,7 @@
                             <li class="ct_view01"><?php echo do_shortcode('[post-views]'); ?></li>
                             <li><?php if( function_exists('zilla_likes') ) zilla_likes(); ?></li>
                           </ul>
-                          <p class="pl_auther"><span><img src="<?php echo $editor_avatar_tiny; ?>" alt=""></span><?php echo $nicename; ?></p>
+                          <p class="pl_auther"><span><img src="<?php echo $editor_avatar_tiny; ?>" alt=""></span><?php echo $profile_fullname; ?></p>
                         </div>
                       </div>
                     </div>

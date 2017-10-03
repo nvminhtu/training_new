@@ -85,7 +85,15 @@
 
                   </p>
                   <div class="pl_bottom">
-                    <p class="pl_auther"><span><img src="<?php echo $editor_avatar_url; ?>" width="28" height="28" alt="<?php echo $profile_fullname; ?>"></span><?php echo $profile_fullname; ?></p>
+                    <p class="pl_auther">
+                      <span>
+                        <?php if($editor_avatar_url =="") { ?>
+                          <img src="<?php bloginfo('template_url'); ?>/images/dummy28x28.jpg" width="28" height="28" alt="<?php echo $profile_fullname; ?>">
+                        <?php } else { ?>
+                          <img src="<?php echo $editor_avatar_url; ?>" width="28" height="28" alt="<?php echo $profile_fullname; ?>">
+                        <?php } ?>
+                      </span><?php echo $profile_fullname; ?>
+                    </p>
                     <p class="pl_date"><?php echo $time; ?></p>
                   </div>
                 </div>

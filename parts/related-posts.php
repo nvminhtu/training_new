@@ -8,15 +8,15 @@
   <p class="ptitle_01">おすすめ記事</p>
   <div class="list_c01 clearfix">
       <?php 
+
         $id = get_the_ID();
-        $paged = ( get_query_var('page') ) ? get_query_var('page') : 1;
         $query_args = array(
             'post_type' => 'post',
             'post__not_in' => array($id),
             'posts_per_page' => 6,
             'orderby' => date,
             'order' => desc,
-            'field' => 'slug'
+            'ignore_sticky_posts' => 1
           );
         $the_query = new WP_Query( $query_args ); 
         if ( $the_query->have_posts() ) : 

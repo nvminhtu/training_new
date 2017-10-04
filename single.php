@@ -43,9 +43,11 @@
 		            </div>
 		            <div class="article_detail_cm_au clearfix">
 		              <p class="cm_img">
-		                <?php if( $editor_gallery ): ?>
+		                <?php if($editor_avatar_url!='') { ?>
 					  		<a href="<?php echo get_author_posts_url( $author_id); ?>"><img src="<?php echo $editor_avatar_url; ?>" width="96" height="96" alt="<?php echo $profile_fullname; ?>"></a>
-						<?php endif; ?>
+						<?php } else { ?>
+							<a href="<?php echo get_author_posts_url( $author_id); ?>"><img src="<?php bloginfo('template_url'); ?>/images/dummy96x96.jpg" width="96" height="96" alt="<?php echo $profile_fullname; ?>"></a>
+						<?php } ?>
 		              </p>
 		              <p class="cm_aname"><?php echo $profile_fullname; ?></p>
 		              <p class="cm_pos"><?php echo $title_work; ?></p>

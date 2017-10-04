@@ -15,7 +15,6 @@
               $profile_fullname = get_field('profile_fullname', 'user_'. $author_id);
               $description = get_field('description', 'user_'. $author_id);
               $focus_topic = get_field('focus_topic', 'user_'. $author_id);
-              $focus_topic_test = get_field('focus_topic_test', 'user_'. $author_id);
               $promotion_video = get_field('promotion_video', 'user_'. $author_id);
               $editor_gallery = get_field('profile_picture', 'user_'. $author_id);
               $editor_avatar_tiny = $editor_gallery[0]['sizes']['img_author_tiny'];
@@ -129,7 +128,7 @@
            
             <div class="box_focus clearfix">
               <p class="ttl_fc">Focus!</p>
-              <div class="list_fc"><?php echo $focus_topic_test; ?></div>
+              <div class="list_fc"><?php echo str_replace(",",", ",$focus_topic); ?></div>
             </div>
              <!-- //comment out Followers and Follow Button
             <p class="traijing_fl">4,672 フォロワー</p>

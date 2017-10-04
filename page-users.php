@@ -27,7 +27,7 @@
 				$users = array('Editor','Author');
 
 			    $args = array(
-					'role' => 'Author',
+					'role' => '',
 			        'number' => $no, 
 			        'offset' => $offset
 			     );
@@ -65,7 +65,7 @@
 		                  <div class="list_ct_traijing_txt"><?php echo $description; ?></div>
 		                  <div class="box_focus clearfix">
 		                    <p class="ttl_fc">Focus!</p>
-		                    <p class="list_fc"><?php echo $focus_topic; ?></p>
+		                    <p class="list_fc"><?php echo str_replace("world","Peter","Hello world!"); ; ?></p>
 		                  </div>
 		                </div>
 		              </div>

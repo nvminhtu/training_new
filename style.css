@@ -59,3 +59,29 @@ Text Domain: OutSeekers
   background-color: #ff3c50;
   color: #fff;
 }
+/* ============================================================
+  CUSTOM MORE STYLE
+============================================================ */
+#social_share li {
+  padding: 0;
+  float: left;
+  margin-right: 15px;
+}
+#social_share .external {
+  background: none;
+  padding-left: 0;
+}
+.social_listing {
+  margin: 15px 0;
+  overflow: hidden;
+}
+.social_listing li {
+  float: left;
+  margin: 2px 3px;
+}
+.ct_article_detail ul.social_listing li:before {
+  display: none;
+}
+.ct_article_detail ul.social_listing li {
+  padding-left: 0;
+}

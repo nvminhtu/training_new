@@ -36,6 +36,7 @@
           		<span class="like_heart"><?php if( function_exists('zilla_likes') ) zilla_likes(); ?></span>
           	</p>
          	<p class="article_detail_title"><?php the_title(); ?></p>
+         	<?php include('parts/social-top.php') ?>
           		<div class="article_detail_box_cm clearfix">
           			
 		            <div class="article_detail_cm_pop clearfix">
@@ -117,7 +118,7 @@
 		  endif;
 		?>
         <!-- end ct_article_detail --></div>
-
+		<?php //include('parts/social-bottom.php') ?>
         <?php include('parts/related-posts.php'); ?>
 
         <!-- start : adsense_area_box -->

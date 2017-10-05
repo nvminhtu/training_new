@@ -54,42 +54,62 @@
 		              <p class="cm_pos"><?php echo $title_work; ?></p>
 		            </div>
 		         </div>
-            <?php if(has_post_thumbnail()) { ?>
-	             <div class="center">
-	             	<div class="featured_picture" style="width: <?php echo $img_blog_w; ?>px;">
-	             		<img src="<?php echo $img_blog_src; ?>" alt="<?php echo get_the_title(); ?>" data-width="<?php echo $img_blog_w; ?>" data-height="<?php echo $img_blog_h; ?>" >
-	             		<?php if(isset($img_refer_url) && $img_refer_url!=''){ ?>
-	             			<div class="desc" style="width: <?php echo $img_blog_w; ?>px;">
-	             				<span>写真引用元： <a href="<?php echo $img_refer_url; ?>"><?php echo $img_refer_url; ?></a></span>
-	             			</div>
-	             		<?php } ?>
-	             		<?php if(isset($img_caption) && $img_caption!='') { ?>
-	             		<p class="pic_description" style="width: <?php echo $img_blog_w; ?>px;">
-	             			▲<?php echo $img_caption; ?></p>
-	             		<?php } ?>
-	             	</div>
-	             	
-	             </div>
-            <?php } ?>
-			
-            <?php 
-            	// Show Video if it was uploaded
+           
+
+			<?php
+			// ---------------- Show Video if it was uploaded / Show thumbnail ------------------------
 				$self_video = get_field( "self_video");
-				$youtube_vimeo = get_field( "youtube_vimeo");
+				$youtube_url = get_field( "youtube_url");
+				$vimeo_url = get_field( "vimeo_url");
 
-            	//1.1 Vimeo
-                if(preg_match('/https:\/\/(www\.)*vimeo\.com\/.*/',$youtube_vimeo)){ 
-            ?>
-                 <iframe src="https://player.vimeo.com/video/57399324" width="668" height="374" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-            <?php } ?>
+				$choose_video_to_display = get_field( "choose_video_to_display");
 
-            <?php //1.2 Youtube 
-            	if(preg_match('/https:\/\/(www\.)*youtube\.com\/.*/',$youtube_vimeo)){  
-            ?>
-                <iframe width="668" height="374" src="https://www.youtube.com/embed/jovTHH9yrHY" frameborder="0" allowfullscreen></iframe>
-            <?php } ?>
+				if($self_video=="" && $youtube_url=="" && $vimeo_url=="") {
+					if(has_post_thumbnail()) { ?>
+			            <div class="center">
+			             	<div class="featured_picture" style="width: <?php echo $img_blog_w; ?>px;">
+			             		<img src="<?php echo $img_blog_src; ?>" alt="<?php echo get_the_title(); ?>" data-width="<?php echo $img_blog_w; ?>" data-height="<?php echo $img_blog_h; ?>" >
+			             		<?php if(isset($img_refer_url) && $img_refer_url!=''){ ?>
+			             			<div class="desc" style="width: <?php echo $img_blog_w; ?>px;">
+			             				<span>写真引用元： <a href="<?php echo $img_refer_url; ?>"><?php echo $img_refer_url; ?></a></span>
+			             			</div>
+			             		<?php } ?>
+			             		<?php if(isset($img_caption) && $img_caption!='') { ?>
+			             		<p class="pic_description" style="width: <?php echo $img_blog_w; ?>px;">
+			             			▲<?php echo $img_caption; ?></p>
+			             		<?php } ?>
+			             	</div>
+			            </div>
+            <?php   } // end check post thumbnail
+				} else {  // else: check has video or not ?>
+					<div class="video_section">
+				<?php if($choose_video_to_display == "your-video") {
+						// 1.0 Self Hosted Video
+						if($self_video!="") { ?>
+							<video width="100%" height="auto" controls>
+							  	<source src="<?php echo $self_video; ?>" type="video/mp4">
+							  	Your browser does not support the video tag.
+							</video>		
+						<?php } 
+					}
+					
+					if($choose_video_to_display == "vimeo") {
+						// 1.1 Vimeo
+		                if(preg_match('/https:\/\/(www\.)*vimeo\.com\/.*/',$vimeo_url)){ ?>
+		            		<div class="ytb_container"><iframe src="https://player.vimeo.com/video/57399324" width="100%" height="auto" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen class="ytb_video"></iframe></div>
+		            	<?php } 
+		            }
 
-	          <?php the_content(); ?>
+		            if($choose_video_to_display == "youtube") {
+		            	// 1.2 Youtube 
+		            	if(preg_match('/https:\/\/(www\.)*youtube\.com\/.*/',$youtube_url)){ ?>
+		            		<div class="ytb_container"><iframe width="100%" src="https://www.youtube.com/embed/jovTHH9yrHY" frameborder="0" allowfullscreen class="ytb_video"></iframe></div>
+		           		 <?php } 
+		            } ?>
+	            	</div> 
+	            <?php }  // end: check has video or not ?>
+			
+	        <?php the_content(); ?>
 
 			<?php
 

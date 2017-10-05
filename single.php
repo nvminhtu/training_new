@@ -71,6 +71,24 @@
 	             	
 	             </div>
             <?php } ?>
+			
+            <?php 
+            	// Show Video if it was uploaded
+				$self_video = get_field( "self_video");
+				$youtube_vimeo = get_field( "youtube_vimeo");
+
+            	//1.1 Vimeo
+                if(preg_match('/https:\/\/(www\.)*vimeo\.com\/.*/',$youtube_vimeo)){ 
+            ?>
+                 <iframe src="https://player.vimeo.com/video/57399324" width="668" height="374" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            <?php } ?>
+
+            <?php //1.2 Youtube 
+            	if(preg_match('/https:\/\/(www\.)*youtube\.com\/.*/',$youtube_vimeo)){  
+            ?>
+                <iframe width="668" height="374" src="https://www.youtube.com/embed/jovTHH9yrHY" frameborder="0" allowfullscreen></iframe>
+            <?php } ?>
+
 	          <?php the_content(); ?>
 
 			<?php

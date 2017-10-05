@@ -13,11 +13,9 @@
               <img src="<?php bloginfo('template_url'); ?>/images/social/fb-icon.png" alt="Facebook Share">
             </a>
           <!-- facebookshare --></li>
-          
           <li><!-- #facebook -->
             <div class="fb-like" data-href="<?php the_permalink(); ?>" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
           <!-- facebook --></li>
-          
           <li><!-- #twitter -->
           <script type="text/javascript"
                 src="//jsoon.digitiminimi.com/js/widgetoon.js"></script>
@@ -29,7 +27,6 @@
            data-lang="ja">ツイート</a>
           <script> widgetoon_main(); </script>
         <!-- end twitter --></li>
-
         <li><!-- #hatena -->
           <a href="http://b.hatena.ne.jp/entry/<?php the_permalink(); ?>" class="hatena-bookmark-button" 
           data-hatena-bookmark-title="<?php the_title(); ?>" 

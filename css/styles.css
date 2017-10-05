@@ -536,7 +536,7 @@ border-radius: 4px;
 /* idx_ct01
 -----------------------------------------------*/
 #idx_ct01{
-	padding:20px 0 10px 0;
+	padding:20px 0 20px 0;
 }
 .topic_path {
 	padding:0 0 20px;
@@ -733,6 +733,7 @@ border-radius: 28px;}
 	margin:0 16px 16px 0;
 	float:left;
 	box-sizing:border-box;
+	display:table;
 }
 .pickup_box:nth-child(2n+2){
 	margin-right:0;

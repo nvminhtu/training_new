@@ -273,6 +273,11 @@ h5.bh {
 }
 
 @media screen and (max-width: 640px) {
+	.article_detail_box_cm{
+	 display:block;
+	}
+	.cm_img img{
+		margin-left:10px;}
 	.article_detail_cm_pop:before {
 	
 		width: 27px;
@@ -289,7 +294,7 @@ h5.bh {
 		width:100%;
 		float:none;
 		padding-top:30px;
-		max-width:250px;
+		max-width:350px;
 		margin:0 auto;
 	}
 	.cm_aname{

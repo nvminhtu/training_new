@@ -226,6 +226,12 @@ border-radius: 28px;}
 	line-height: 1.3em;
 	margin-bottom: 20px;
 }
+.article_detail_box_cm{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	margin-bottom:30px;
+}
 .article_detail_cm_pop {
 	border: 5px solid #F29C9F;
 	-webkit-border-radius: 5px;
@@ -233,11 +239,13 @@ border-radius: 28px;}
 	border-radius: 5px;
 	padding: 15px;
 	float: left;
-	max-width: 590px;
+	width: 590px;
+	min-height:100px;
 	box-sizing: border-box;
 	margin-left: calc(100% - 880px);
 	position: relative;
 	background: #F9F9F9;
+	margin-right:25px;
 }
 .article_detail_cm_pop:before {
 	content: "";
@@ -258,7 +266,7 @@ border-radius: 28px;}
 	float: right;
 	width: 250px;
 	box-sizing: border-box;
-	padding-top: 60px;
+	padding-top:30px;
 	margin-right: 20px;
 }
 .cm_img {

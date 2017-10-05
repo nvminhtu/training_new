@@ -54,15 +54,7 @@ get_header(); ?>
                           <li class="ct_view01"><?php echo do_shortcode('[post-views]'); ?></li>
                           <li><?php if( function_exists('zilla_likes') ) zilla_likes(); ?></li>
                         </ul>
-
-                        <p class="pl_auther"><span>
-                           <?php if($editor_avatar_url =="") { ?>
-                            <img src="<?php bloginfo('template_url'); ?>/images/dummy28x28.jpg" width="28" height="28" alt="<?php echo $profile_fullname; ?>">
-                          <?php } else { ?>
-                            <img src="<?php echo $editor_avatar_url; ?>" width="28" height="28" alt="<?php echo $profile_fullname; ?>">
-                          <?php } ?>
-                          </span>
-                          <?php echo $profile_fullname; ?></p>
+                        <p class="pl_auther"><span><img src="<?php echo $editor_avatar_url; ?>" width="28" height="28" alt=""></span><?php echo $profile_fullname; ?></p>
                       </div>
                     </div>
                   </div>

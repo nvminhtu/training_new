@@ -15,74 +15,40 @@
         <h2 class="ttl_h201">アウトシーカーズ 一覧</h2>
 		<div class="ct_article_box clearfix">
           <div class="ct_article_list_out clearfix"> 
-          	<?php 
-			  	$no=8;// total no of author to display
-				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-			    if($paged==1){
-			  		$offset=0;  
-				} else {
-				   $offset= ($paged-1)*$no;
-				}
-
-				$users = array('Editor','Author');
-
-			    $args = array(
-					'role' => '',
-			        'number' => $no, 
-			        'offset' => $offset
-			     );
-
-			    $user_query = new WP_User_Query( $args );
-			    if ( !empty( $user_query->results ) ) {
-			        foreach ( $user_query->results as $user ) { 
-			        	//get information of user
-			        	$author_id = $user->ID;
-			        	$firstname = get_the_author_meta( 'user_firstname',$author_id );
-		              	$lastname = get_the_author_meta( 'user_lastname', $author_id );
-		             	 $fullname = $lastname.' '.$firstname;
-		              	$nicename = get_the_author_meta( 'user_nicename', $author_id );
-		              	$description = get_field('description', 'user_'. $author_id);
-		              	$focus_topic = get_field('focus_topic', 'user_'. $author_id);
-			        	$editor_gallery = get_field('profile_picture', 'user_'. $user->ID);
-			        	$editor_avatar_tiny = $editor_gallery[0]['sizes']['img_author_list'];
-			       	?>
-					 <div class="list_ct_traijing clearfix">
-		              <div class="list_ct_traijing_img">
-		                <p><a href="<?php echo get_author_posts_url($author_id); ?>"><img src="<?php echo $editor_avatar_tiny;  ?>" alt=""></a></p>
-		              </div>
-		              <div class="list_ct_traijing_ct">
-		                <div class="list_ct_traijing_info clearfix">
-		                  <p class="list_ct_traijing_auther"><?php echo $fullname; ?><span><?php echo $nicename; ?></span></p>
-		                  <!-- <p class="traijing_fl">4,672 フォロワー</p>
-		                  <p class="btn_fl"><a href="">+ フォロー</a></p> -->
-		                </div>
-		                <div class="list_ct_traijing_bt clearfix">
-		                  <style>
-		                  	.list_ct_traijing_txt p {
-		                  		font-size: 14px;
-		                  	}
-		                  </style>
-		                  <div class="list_ct_traijing_txt"><?php echo $description; ?></div>
-		                  <div class="box_focus clearfix">
-		                    <p class="ttl_fc">Focus!</p>
-		                    <p class="list_fc"><?php echo $focus_topic; ?></p>
-		                  </div>
-		                </div>
-		              </div>
-		            </div>
-			        <?php }
-			    }
-				else {
-				  //No user found
-				} 
-
-				// Pagination go here
-				$total_user = $user_query->total_users;  
-	            $total_pages = ceil($total_user/$no);
-
-	            custom_pagination($total_pages);
-
-			?>
+          	<div class="list_author01 clearfix">
+            	<div class="list_author01_ct clearfix">
+                	<a href=""><p class="list_author01_img"><img src="<?php bloginfo('template_url'); ?>/images/list_img_author01.jpg" alt=""></p>
+                    <p class="list_author01_name">Atsushi Matsumoto</p>
+                     <p class="list_author01_pos">Contents Producer Groovoost inc. COO<br>GoPro Family<span>&reg;</span></p>
+                     </a>
+                </div>
+             
+              <div class="list_author01_ct clearfix">
+                	<a href=""><p class="list_author01_img"><img src="<?php bloginfo('template_url'); ?>/images/list_img_author01.jpg" alt=""></p>
+                    <p class="list_author01_name">Atsushi Matsumoto</p>
+                     <p class="list_author01_pos">Contents Producer Groovoost inc. COO<br>GoPro Family<span>&reg;</span></p>
+                     </a>
+                </div>
+                <div class="list_author01_ct clearfix">
+                	<a href=""><p class="list_author01_img"><img src="<?php bloginfo('template_url'); ?>/images/list_img_author01.jpg" alt=""></p>
+                    <p class="list_author01_name">Atsushi Matsumoto</p>
+                     <p class="list_author01_pos">Contents Producer Groovoost inc. COO<br>GoPro Family<span>&reg;</span></p>
+                     </a>
+                </div>
+                <div class="list_author01_ct clearfix">
+                	<a href=""><p class="list_author01_img"><img src="<?php bloginfo('template_url'); ?>/images/list_img_author01.jpg" alt=""></p>
+                    <p class="list_author01_name">Atsushi Matsumoto</p>
+                     <p class="list_author01_pos">Contents Producer Groovoost inc. COO<br>GoPro Family<span>&reg;</span></p>
+                     </a>
+                </div>
+                <div class="list_author01_ct clearfix">
+                	<a href=""><p class="list_author01_img"><img src="<?php bloginfo('template_url'); ?>/images/list_img_author01.jpg" alt=""></p>
+                    <p class="list_author01_name">Atsushi Matsumoto</p>
+                     <p class="list_author01_pos">Contents Producer Groovoost inc. COO<br>GoPro Family<span>&reg;</span></p>
+                     </a>
+                </div>
+            </div>
+			
             
 			</div>
         </div>

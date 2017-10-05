@@ -136,6 +136,14 @@
 
           </div>
           <?php /* ---------------### end 1.2 editor information -------------------------------- */ ?>
+          <div id="a_list_social" class="clearfix">
+          	<ul>
+          		<li><a href=""><img src="<?php bloginfo('template_url'); ?>/images/aicon_fb.png" alt="Facebook"></a></li>
+          		<li><a href=""><img src="<?php bloginfo('template_url'); ?>/images/aicon_tw.png" alt="Twitter"></a></li>
+                <li><a href=""><img src="<?php bloginfo('template_url'); ?>/images/aicon_ins.png" alt="Instagram"></a></li>
+                <li><a href=""><img src="<?php bloginfo('template_url'); ?>/images/aicon_ytb.png" alt="Youtube"></a></li>
+          	</ul>
+          </div>
          <!-- end traijing_box_top --></div>
           
 

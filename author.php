@@ -137,11 +137,17 @@
           </div>
           <?php /* ---------------### end 1.2 editor information -------------------------------- */ ?>
           <div id="a_list_social" class="clearfix">
+            <?php 
+              $sns_facebook = get_field('sns_facebook', 'user_'. $author_id);
+              $sns_twitter = get_field('sns_twitter', 'user_'. $author_id);
+              $sns_instagram = get_field('sns_instagram', 'user_'. $author_id);
+              $sns_youtube = get_field('sns_youtube', 'user_'. $author_id);
+            ?>
           	<ul>
-          		<li><a href=""><img src="<?php bloginfo('template_url'); ?>/images/aicon_fb.png" alt="Facebook"></a></li>
-          		<li><a href=""><img src="<?php bloginfo('template_url'); ?>/images/aicon_tw.png" alt="Twitter"></a></li>
-                <li><a href=""><img src="<?php bloginfo('template_url'); ?>/images/aicon_ins.png" alt="Instagram"></a></li>
-                <li><a href=""><img src="<?php bloginfo('template_url'); ?>/images/aicon_ytb.png" alt="Youtube"></a></li>
+          		<li><a href="<?php echo $sns_facebook; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/aicon_fb.png" alt="Facebook"></a></li>
+          		<li><a href="<?php echo $sns_twitter; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/aicon_tw.png" alt="Twitter"></a></li>
+                <li><a href="<?php echo $sns_instagram; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/aicon_ins.png" alt="Instagram"></a></li>
+                <li><a href="<?php echo $sns_youtube; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/aicon_ytb.png" alt="Youtube"></a></li>
           	</ul>
           </div>
          <!-- end traijing_box_top --></div>

@@ -17,7 +17,7 @@
               <div class="ct_article_list_out clearfix"> 
               	<div class="list_author01 clearfix">
                   <?php 
-                    $no=2;// total no of author to display
+                    $no=8;// total no of author to display
                     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                     if($paged==1){
                           $offset=0;  
@@ -57,7 +57,7 @@
                                   <?php } ?>
                                 </p>
                               <p class="list_author01_name"><?php echo $profile_fullname; ?></p>
-                               <p class="list_author01_pos"><?php echo $title_of_work; ?><br><?php echo $company; ?>y<span>&reg;</span></p>
+                               <p class="list_author01_pos"><?php echo $title_of_work; ?><br><?php echo $company; ?></p>
                             </a>
                           </div>
                         <?php }

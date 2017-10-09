@@ -4,7 +4,7 @@
     <div class="inner clearfix">
       <div id="content" class="clearfix">
         <?php include('parts/breadcrumbs.php'); ?>
-
+        <?php $author_id=$post->post_author; ?>
         <div class="ct_article_detail clearfix">
 	        <?php
 				if ( have_posts() ) :
@@ -12,7 +12,7 @@
 
 				    	$my_excerpt = get_the_excerpt();
 						
-						$author_id = get_the_author_meta('ID');
+						
 						$firstname = get_the_author_meta( 'user_firstname' );
                 		$lastname = get_the_author_meta( 'user_lastname' );
                 		$profile_fullname = get_field('profile_fullname', 'user_'. $author_id);
@@ -40,7 +40,11 @@
           		<div class="article_detail_box_cm clearfix">
           			
 		            <div class="article_detail_cm_pop clearfix">
-		               <?php the_excerpt(); ?>
+		               <?php if ( ! has_excerpt() ) {
+						      echo '';
+						} else { 
+						      the_excerpt();
+						} ?>
 		            </div>
 		            <div class="article_detail_cm_au clearfix">
 		              <p class="cm_img">
@@ -156,7 +160,7 @@
 		  endif;
 		?>
         <!-- end ct_article_detail --></div>
-		<?php //include('parts/social-bottom.php') ?>
+		<?php include('parts/social-bottom.php') ?>
         <?php include('parts/related-posts.php'); ?>
 
         <!-- start : adsense_area_box -->

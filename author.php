@@ -64,34 +64,31 @@
                 <ul id="traijing_slider01">
                   <?php // loop author slider main
                       $i = 0;
-                      if( $editor_gallery ): 
-                      foreach( $editor_gallery as $image ): 
-                        if($i<3) {
-                         
-                          //print_r($image);
-                      ?>
-                        <li>
-                          <span>
-                            <?php 
-                              $sWidth = $image['width'];
-                              $sHeight = $image['height'];
-                              $ratio = $sWidth / $sHeight;
-                              $rWidth = 500 * $ratio;
-                            ?>
-                            <?php if($sHeight >= 500) { ?>
-                              <img src="<?php echo $image['sizes']['img_author_slider_w']; ?>" alt="<?php echo $image['alt']; ?>"/>
-                            <?php } else { ?>
-                              <img src="<?php echo $image['sizes']['img_author_slider_fixed']; ?>" alt="<?php echo $image['alt']; ?>"/>   
-                            <?php } ?>
-                          </span>
-                        </li>  
-                      <?php } 
-                      $i++; 
-                      endforeach; 
-                      
-                    endif; 
-                    // end loop author thumb
-                  ?>
+                      if( $editor_gallery ) {
+                        foreach( $editor_gallery as $image ): 
+                          if($i<3) { ?>
+                          <li>
+                            <span>
+                              <?php 
+                                $sWidth = $image['width'];
+                                $sHeight = $image['height'];
+                                $ratio = $sWidth / $sHeight;
+                                $rWidth = 500 * $ratio;
+                              ?>
+                              <?php if($sHeight >= 500) { ?>
+                                <img src="<?php echo $image['sizes']['img_author_slider_w']; ?>" alt="<?php echo $image['alt']; ?>" />
+                              <?php } else { ?>
+                                <img src="<?php echo $image['sizes']['img_author_slider_fixed']; ?>" alt="<?php echo $image['alt']; ?>" />   
+                              <?php } ?>
+                            </span>
+                          </li>  
+                        <?php } 
+                        $i++; 
+                        endforeach; 
+                     
+                    } else {  // load default dummy image ?>
+                        <img src="<?php bloginfo('template_url'); ?>/images/dummy667x500.jpg" width="667" height="500" alt="" />
+                    <?php } // end loop author thumb ?>
                 </ul>
 
                 <div id="tr_slider_pager">
@@ -142,13 +139,27 @@
               $sns_twitter = get_field('sns_twitter', 'user_'. $author_id);
               $sns_instagram = get_field('sns_instagram', 'user_'. $author_id);
               $sns_youtube = get_field('sns_youtube', 'user_'. $author_id);
+              $sns_blog = get_field('sns_blog', 'user_'. $author_id);
             ?>
+            <?php if($sns_facebook!=''||$sns_twitter!=''||$sns_youtube!=''||$sns_instagram!='') { ?>
           	<ul>
-          		<li><a href="<?php echo $sns_facebook; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/aicon_fb.png" alt="Facebook"></a></li>
-          		<li><a href="<?php echo $sns_twitter; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/aicon_tw.png" alt="Twitter"></a></li>
+              <?php if($sns_facebook!='') { ?>
+                <li><a href="<?php echo $sns_facebook; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/aicon_fb.png" alt="Facebook"></a></li>
+              <?php } ?>
+              <?php if($sns_twitter!='') { ?>
+                <li><a href="<?php echo $sns_twitter; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/aicon_tw.png" alt="Twitter"></a></li>
+              <?php } ?>
+              <?php if($sns_instagram!='') { ?>
                 <li><a href="<?php echo $sns_instagram; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/aicon_ins.png" alt="Instagram"></a></li>
+              <?php } ?>
+              <?php if($sns_youtube!='') { ?>
                 <li><a href="<?php echo $sns_youtube; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/aicon_ytb.png" alt="Youtube"></a></li>
+              <?php } ?>
+              <?php if($sns_blog!='') { ?>
+                <li><a href="<?php echo $sns_blog; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/aicon_blog.png" alt="Blog"></a></li>
+              <?php } ?>
           	</ul>
+            <?php } ?>
           </div>
          <!-- end traijing_box_top --></div>
           

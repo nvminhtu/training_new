@@ -317,12 +317,12 @@ function wpdocs_filter_wp_title( $title, $sep ) {
 add_filter( 'wp_title', 'wpdocs_filter_wp_title', 10, 2 );
 
 
-// function general_admin_notice(){
-//     global $pagenow;
-//     if ( $pagenow == 'admin.php' ) {
-//          echo '<div class="notice notice-warning is-dismissible">
-//              <p>This notice appears on the settings page.</p>
-//          </div>';
-//     }
-// }
-// add_action('admin_notices', 'general_admin_notice');
+// Hide YOAST SEO INPUT
+add_action('admin_head', 'gr_hide_yoast_profile');
+function gr_hide_yoast_profile() {
+  echo '<style>
+        form#your-profile .yoast.yoast-settings {
+          display: none;
+        }
+        </style>';
+}

@@ -169,7 +169,7 @@ function homepage_widget_bottom() {
 }
 add_action('widgets_init', 'homepage_widget_bottom');
 
-// ----------------- 07. Custom code for removing wrap symbol -----------------------
+// ----------------- 09. Custom code for removing wrap symbol -----------------------
 // >> add [widget title] to prevent it display on
 function flexible_widget_titles( $widget_title ) {
   // get rid of any leading and trailing spaces
@@ -179,3 +179,6 @@ function flexible_widget_titles( $widget_title ) {
     return $title;
 }
 add_filter( 'widget_title', 'flexible_widget_titles' );
+
+// ----------------- 10. Remove auto Paragraph in Wordpress Widget Text -----------------------
+remove_filter('widget_text_content', 'wpautop');

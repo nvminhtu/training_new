@@ -326,3 +326,52 @@ function gr_hide_yoast_profile() {
         }
         </style>';
 }
+
+// Hide User fields in Wordperss User contact
+add_filter('user_contactmethods', 'modify_contact_methods');
+function modify_contact_methods($profile_fields) {
+  // Add new fields
+  $profile_fields['facebook'] = 'Facebook URL';
+  $profile_fields['twitter'] = 'Twitter Username';
+  $profile_fields['gplus'] = 'Google+ URL';
+  $profile_fields['youtube'] = 'YouTube Channel URL';
+
+  unset($profile_fields['facebook']);
+  unset($profile_fields['twitter']);
+  unset($profile_fields['gplus']);
+  unset($profile_fields['periscope']);
+  unset($profile_fields['googleplus']);
+  unset($profile_fields['youtube']);
+  unset($profile_fields['aim']);
+  unset($profile_fields['yim']);
+  unset($profile_fields['jabber']);
+
+  return $profile_fields;
+}
+
+// Returns true if user has specific role 
+function check_user_role( $role, $user_id = null ) {
+    if ( is_numeric( $user_id ) )
+        $user = get_userdata( $user_id );
+    else
+        $user = wp_get_current_user();
+    if ( empty( $user ) )
+        return false;
+    return in_array( $role, (array) $user->roles );
+}
+ 
+// Disable WordPress SEO meta box for all roles other than administrator and seo
+function wpse_init(){
+  if( !(check_user_role('seo') || check_user_role('administrator') || check_user_role('editor')) ){
+    // Remove page analysis columns from post lists, also SEO status on post editor
+    add_filter('wpseo_use_page_analysis', '__return_false');
+    // Remove Yoast meta boxes
+    add_action('add_meta_boxes', 'disable_seo_metabox', 100000);
+  }   
+}
+add_action('init', 'wpse_init');
+ 
+function disable_seo_metabox(){
+    remove_meta_box('wpseo_meta', 'post', 'normal');
+    remove_meta_box('wpseo_meta', 'page', 'normal');
+}

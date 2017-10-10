@@ -1,7 +1,7 @@
 <?php
 /**
- * Category of Traijing
- * Traijing theme
+ * Category of
+ * theme
  */
 
 get_header(); ?>

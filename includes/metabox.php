@@ -6,14 +6,14 @@ add_action( 'cmb2_admin_init', 'cmb2_sample_metaboxes' );
 function cmb2_sample_metaboxes() {
 
     // Start with an underscore to hide fields from custom fields list
-    $prefix = '_traijing_';
+    $prefix = '_outseekers_';
 
     /**
      * Initiate the metabox
      */
     $cmb = new_cmb2_box( array(
-        'id'            => 'traijing_metabox',
-        'title'         => __( 'Traijing Related Posts', 'cmb2' ),
+        'id'            => 'outseekers_metabox',
+        'title'         => __( 'Outseekers Related Posts', 'cmb2' ),
         'object_types'  => array( 'post', ), // Post type
         'context'       => 'normal',
         'priority'      => 'high',
@@ -41,10 +41,10 @@ function cmb2_get_post_options( $query_args ) {
     $current_user = wp_get_current_user();
     $author_name = $current_user->user_login;
     $author_id = $post->post_author;
-    
+   
     $args = array(
         'post_type'   => 'post',
-        'numberposts' => 10,
+        'numberposts' => -1,
         'author' => $author_id,
         'post_status' => 'publish,future',
         'exclude'     => $post->ID

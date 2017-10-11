@@ -18,7 +18,7 @@
               $promotion_video = get_field('promotion_video', 'user_'. $author_id);
               $editor_gallery = get_field('profile_picture', 'user_'. $author_id);
               $editor_avatar_tiny = $editor_gallery[0]['sizes']['img_author_tiny'];
-              $insta_username = get_the_author_meta('insta_username', $author_id);
+              $sns_instagram = get_field('sns_instagram', 'user_'. $author_id);
 
           ?>
          
@@ -28,18 +28,24 @@
             <?php 
               if(isset($promotion_video)&&$promotion_video!='') { 
                 //01. IF has VIDEO
+                $vimeoid = explode("/",$promotion_video);
             ?>
               <div id="tr_slider_out" class="clearfix">
                 <?php //1.1 Vimeo
                   if(preg_match('/https:\/\/(www\.)*vimeo\.com\/.*/',$promotion_video)){ 
                 ?>
-                  <iframe src="https://player.vimeo.com/video/57399324" width="668" height="374" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                  <div class="ytb_container">
+                    <iframe src="https://player.vimeo.com/video/<?php echo $vimeoid[3]; ?>" width="100%" height="auto" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen class="ytb_video"></iframe>
+                  </div>
                 <?php } ?>
 
                 <?php //1.2 Youtube
                   if(preg_match('/https:\/\/(www\.)*youtube\.com\/.*/',$promotion_video)){ 
-                ?>
-                    <iframe width="668" height="374" src="https://www.youtube.com/embed/jovTHH9yrHY" frameborder="0" allowfullscreen></iframe>
+                    $ytbid = explode("v=", $promotion_video);
+                ?>  
+                    <div class="ytb_container">
+                      <iframe width="100%" src="https://www.youtube.com/embed/<?php echo $ytbid[1]; ?>" frameborder="0" allowfullscreen class="ytb_video"></iframe>
+                    </div>
                 <?php } ?>
               </div> 
 
@@ -144,13 +150,13 @@
             <?php if($sns_facebook!=''||$sns_twitter!=''||$sns_youtube!=''||$sns_instagram!='') { ?>
           	<ul>
               <?php if($sns_facebook!='') { ?>
-                <li><a href="<?php echo $sns_facebook; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/aicon_fb.png" alt="Facebook"></a></li>
+                <li><a href="https://www.facebook.com/<?php echo $sns_facebook; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/aicon_fb.png" alt="Facebook"></a></li>
               <?php } ?>
               <?php if($sns_twitter!='') { ?>
-                <li><a href="<?php echo $sns_twitter; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/aicon_tw.png" alt="Twitter"></a></li>
+                <li><a href="https://twitter.com/<?php echo $sns_twitter; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/aicon_tw.png" alt="Twitter"></a></li>
               <?php } ?>
               <?php if($sns_instagram!='') { ?>
-                <li><a href="<?php echo $sns_instagram; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/aicon_ins.png" alt="Instagram"></a></li>
+                <li><a href="https://www.instagram.com/<?php echo $sns_instagram; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/aicon_ins.png" alt="Instagram"></a></li>
               <?php } ?>
               <?php if($sns_youtube!='') { ?>
                 <li><a href="<?php echo $sns_youtube; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/aicon_ytb.png" alt="Youtube"></a></li>
@@ -167,7 +173,7 @@
         <?php /* ---------------### 02.Instagram of user -------------------------------- */ ?>
         <div class="ct_article_box clearfix">
           <p class="ptitle_02">Instagramの写真</p>
-          <?php echo do_shortcode('[ap_instagram_slider set_username="'.$insta_username.'"]'); ?>
+          <?php echo do_shortcode('[ap_instagram_slider set_username="'.$sns_instagram.'"]'); ?>
         </div>
         <?php /* ---------------### End 02.Instagram of user -------------------------------- */ ?>
         

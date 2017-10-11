@@ -9,10 +9,15 @@
   <div class="list_c01 clearfix">
       <?php 
 
+        $current_user = wp_get_current_user();
+        $author_name = $current_user->user_login;
+        $author_id = $post->post_author;
+
         $id = get_the_ID();
         $query_args = array(
             'post_type' => 'post',
             'post__not_in' => array($id),
+            'author' => $author_id,
             'posts_per_page' => 6,
             'orderby' => date,
             'order' => desc,

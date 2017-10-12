@@ -12,8 +12,7 @@
     $wp_user_query = new WP_User_Query(array (
         'role' => '',
         'order' => 'ASC',
-        'orderby' => 'display_name',
-        'exclude' => array($author_id)
+        'orderby' => 'display_name'
     ));
 
     // Get the results

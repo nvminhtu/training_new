@@ -112,7 +112,7 @@ function sidebar_widget_top() {
  }
 add_action('widgets_init', 'sidebar_widget_top');
 
-// ----------------- 07. Add widget Sidebar Botto,-----------------------
+// ----------------- 07. Add widget Sidebar Bottom -----------------------
 function sidebar_widget_bottom() {
 	register_sidebar(array(
 	  'id' => 'sidebar-widget-bottom',
@@ -126,48 +126,6 @@ function sidebar_widget_bottom() {
 	 ));
  }
 add_action('widgets_init', 'sidebar_widget_bottom');
-
-function sidebar_widget() {
-	register_sidebar(array(
-	  'id' => 'sidebar-widget',
-	  'name' => 'Sidebar Widget',
-	  'class' => '',
-	  'description' => 'This is sidebar Widget',
-	  'before_title' => '',
-	  'after_title' => '',
-	  'before_widget' => '<div class="cwidget-sidebar">',
-	  'after_widget' => '</div>',
-	 ));
- }
-add_action('widgets_init', 'sidebar_widget');
-// ----------------- 08. Add homepage widget <top & bottom> -----------------------
-function homepage_widget_top() {
-	register_sidebar(array(
-	  'id' => 'homepage-widget-top',
-	  'name' => 'Homepage Widget Top',
-	  'class' => '',
-	  'description' => 'This is Homepage Widget',
-	  'before_title' => '',
-	  'after_title' => '',
-	  'before_widget' => '<div class="cwidget-sidebar">',
-	  'after_widget' => '</div>',
-	 ));
-}
-add_action('widgets_init', 'homepage_widget_top');
-
-function homepage_widget_bottom() {
-	register_sidebar(array(
-	  'id' => 'homepage-widget-bottom',
-	  'name' => 'Homepage Widget Bottom',
-	  'class' => '',
-	  'description' => 'This is Homepage Widget',
-	  'before_title' => '',
-	  'after_title' => '',
-	  'before_widget' => '<div class="cwidget-sidebar">',
-	  'after_widget' => '</div>',
-	 ));
-}
-add_action('widgets_init', 'homepage_widget_bottom');
 
 // ----------------- 09. Custom code for removing wrap symbol -----------------------
 // >> add [widget title] to prevent it display on

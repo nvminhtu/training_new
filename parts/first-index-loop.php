@@ -225,21 +225,17 @@
     </div>
    </div>
      <div class="navi clearfix">
-                <!-- Sidebar FrontPage Top -->
-                <div class="navi01 clearfix">
-                  <?php dynamic_sidebar( 'Homepage Widget Top' ); ?>
-                  
-                  
-                </div>
-                <!-- End Sidebar FrontPage Top -->
-                
-                  <!-- Sidebar FrontPage Bottom -->
-                <div class="navi02 clearfix">
-                  <?php dynamic_sidebar( 'Homepage Widget Bottom' ); ?>
-                </div>
-                <!-- Sidebar FrontPage Bottom -->
+        <!-- Sidebar FrontPage Top -->
+        <div class="navi01 clearfix">
+          <?php dynamic_sidebar( 'Homepage Widget Top' ); ?>
+        </div>
+        <!-- End Sidebar FrontPage Top -->
+        
+          <!-- Sidebar FrontPage Bottom -->
+        <div class="navi02 clearfix">
+          <?php dynamic_sidebar( 'Homepage Widget Bottom' ); ?>
+        </div>
+        <!-- Sidebar FrontPage Bottom -->
      </div>
-    
-
   </div>
 </div>

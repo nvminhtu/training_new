@@ -101,6 +101,20 @@ Text Domain: OutSeekers
   width: 100%;
   height: 100%;
 }
+.ytb_embed {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  margin: 15px 0;
+}
+.ytb_embed iframe {
+    position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 #a_list_social .external {
   background: none;
   padding-left: 0;

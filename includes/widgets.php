@@ -97,37 +97,22 @@ function footer_copyright_bottom() {
  add_action('widgets_init', 'footer_copyright_bottom');
 
 
-// ----------------- 06. Add widget Sidebar Top -----------------------
-function sidebar_widget_top() {
-	register_sidebar(array(
-	  'id' => 'sidebar-widget-top',
-	  'name' => 'Sidebar Widget Top',
-	  'class' => '',
-	  'description' => 'This is sidebar Widget',
-	  'before_title' => '',
-	  'after_title' => '',
-	  'before_widget' => '<div class="cwidget-sidebar">',
-	  'after_widget' => '</div>',
-	 ));
- }
-add_action('widgets_init', 'sidebar_widget_top');
+// ----------------- 06. Add widget Sidebar -----------------------
+function sidebar_widget() {
+register_sidebar(array(
+  'id' => 'sidebar-widget',
+  'name' => 'Sidebar Widget',
+  'class' => '',
+  'description' => 'This is sidebar Widget',
+  'before_title' => '',
+  'after_title' => '',
+  'before_widget' => '<div class="cwidget-sidebar">',
+  'after_widget' => '</div>',
+ ));
+}
+add_action('widgets_init', 'sidebar_widget');
 
-// ----------------- 07. Add widget Sidebar Bottom -----------------------
-function sidebar_widget_bottom() {
-	register_sidebar(array(
-	  'id' => 'sidebar-widget-bottom',
-	  'name' => 'Sidebar Widget Bottom',
-	  'class' => '',
-	  'description' => 'This is sidebar Widget',
-	  'before_title' => '',
-	  'after_title' => '',
-	  'before_widget' => '<div class="cwidget-sidebar">',
-	  'after_widget' => '</div>',
-	 ));
- }
-add_action('widgets_init', 'sidebar_widget_bottom');
-
-// ----------------- 09. Custom code for removing wrap symbol -----------------------
+// ----------------- 07. Custom code for removing wrap symbol -----------------------
 // >> add [widget title] to prevent it display on
 function flexible_widget_titles( $widget_title ) {
   // get rid of any leading and trailing spaces

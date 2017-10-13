@@ -4,10 +4,5 @@
   *****/ 
 ?>
 <div id="navi" class="navi clearfix">
-    <div class="navi01 clearfix">
-      <?php dynamic_sidebar( 'Sidebar Widget Top' ); ?>
-    </div>
-    <div class="navi02 clearfix">
-      <?php dynamic_sidebar( 'Sidebar Widget Bottom' ); ?>
-    </div>
+    <?php dynamic_sidebar( 'Sidebar Widget' ); ?>
 <!-- end : #navi --> </div>

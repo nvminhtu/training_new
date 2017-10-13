@@ -38,10 +38,15 @@ function shortcode_instagram_quote_2() {
 /* 08- Get latest post with sticky */
 add_shortcode('pickup_posts', 'pickup_posts_func');
 function pickup_posts_func($atts) {
+	
+	// default URL
+	$default_url = get_bloginfo('siteurl').'/blogs/';
+
 	extract(shortcode_atts(array(
      'title' => 'ジム入門！初心者特集',
      'sub_title' => 'これから開始される方へのアドバイス！',
      'number_post' => 1,
+     'url' => $default_url,
      'text_link' => 'ジム入門！初心者特集'
   	), $atts));
 
@@ -99,7 +104,7 @@ function pickup_posts_func($atts) {
 					      </div></dd>';
 		}
 		$return .='</dl>
-  		<p class="link01"><a href="'.get_bloginfo('siteurl').'/blogs/">'.$text_link.'</a></p>
+  		<p class="link01"><a href="'.$url.'">'.$text_link.'</a></p>
 </div>';
 	} else {
 		// no posts found
@@ -112,10 +117,14 @@ function pickup_posts_func($atts) {
 /* 08- Get latest post with sticky */
 add_shortcode('ranking_article', 'ranking_article_func');
 function ranking_article_func($atts) {
+	// default URL
+	$default_url = get_bloginfo('siteurl').'/blogs/';
+
 	extract(shortcode_atts(array(
      'title' => 'アクセスランキング',
      'sub_title' => '最近投稿された記事の順位',
      'number_post' => 3,
+     'url' => $default_url,
      'text_link' => 'ランキングを見る'
   	), $atts));
 
@@ -174,7 +183,7 @@ function ranking_article_func($atts) {
 	    wp_reset_postdata();
 	    }
 	  $return .='</dl>
-	  <p class="link01"><a href="'.get_bloginfo('siteurl').'/blogs">'.$text_link.'</a></p>
+	  <p class="link01"><a href="'.$url.'">'.$text_link.'</a></p>
 	</div>';
 
 	return $return;

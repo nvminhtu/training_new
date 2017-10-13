@@ -100,14 +100,14 @@
 					if($choose_video_to_display == "vimeo") {
 						// 1.1 Vimeo
 		                if(preg_match('/https:\/\/(www\.)*vimeo\.com\/.*/',$vimeo_url)){ ?>
-		            		<div class="ytb_container"><iframe src="https://player.vimeo.com/video/57399324" width="100%" height="auto" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen class="ytb_video"></iframe></div>
+		            		<iframe src="https://player.vimeo.com/video/57399324" width="100%" height="auto" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 		            	<?php } 
 		            }
 
 		            if($choose_video_to_display == "youtube") {
 		            	// 1.2 Youtube 
 		            	if(preg_match('/https:\/\/(www\.)*youtube\.com\/.*/',$youtube_url)){ ?>
-		            		<div class="ytb_container"><iframe width="100%" src="https://www.youtube.com/embed/jovTHH9yrHY" frameborder="0" allowfullscreen class="ytb_video"></iframe></div>
+		            		<iframe width="100%" src="https://www.youtube.com/embed/jovTHH9yrHY" frameborder="0" allowfullscreen></iframe>
 		           		 <?php } 
 		            } ?>
 	            	</div> 

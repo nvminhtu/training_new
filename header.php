@@ -27,6 +27,11 @@
 
 
 <script src="<?php bloginfo('template_url'); ?>/js/jquery.js" type="text/javascript"></script>
+
+        <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/ResizeSensor.js"></script>
+        <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/theia-sticky-sidebar.js"></script>
+        
+        
 <script src="<?php bloginfo('template_url'); ?>/js/custom_slider.js" type="text/javascript"></script>
 <script src="<?php bloginfo('template_url'); ?>/js/jquery.scroll.js" type="text/javascript"></script>
 <script src="<?php bloginfo('template_url'); ?>/js/common.js" type="text/javascript"></script>
@@ -37,6 +42,11 @@
 <script src="<?php bloginfo('template_url'); ?>/js/scroll_navi.js" type="text/javascript"></script>
 <script src="<?php bloginfo('template_url'); ?>/js/heightLine.js" type="text/javascript"></script>
 <script src="<?php bloginfo('template_url'); ?>/js/top.js" type="text/javascript"></script>
+
+
+
+        
+        
 
 <?php //if is article detail
 	if(is_singular()||is_author()) { ?>

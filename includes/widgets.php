@@ -112,6 +112,23 @@ register_sidebar(array(
 }
 add_action('widgets_init', 'sidebar_widget');
 
+// ----------------- 06.1. Add widget Sidebar sticky -----------------------
+function sidebar_widget_sticky() {
+register_sidebar(array(
+  'id' => 'sidebar-widget-sticky',
+  'name' => 'Sidebar Widget Sticky',
+  'class' => '',
+  'description' => 'This is sidebar Widget sticky',
+  'before_title' => '',
+  'after_title' => '',
+  'before_widget' => '<div class="cwidget-sidebar">',
+  'after_widget' => '</div>',
+ ));
+}
+add_action('widgets_init', 'sidebar_widget_sticky');
+
+
+
 // ----------------- 07. Custom code for removing wrap symbol -----------------------
 // >> add [widget title] to prevent it display on
 function flexible_widget_titles( $widget_title ) {

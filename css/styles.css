@@ -557,6 +557,9 @@ border-radius: 4px;
 }
 .list_c01 {
 	padding:0 17px;
+	display:flex;
+	flex-wrap:wrap;
+	align-items:stretch;
 }
 .list_c01 .col3{
     box-sizing: border-box;
@@ -816,7 +819,7 @@ border-radius: 28px;}
 	height:30px;
 	content:"＞";
 	left:-30px;
-	top:-5px;
+	top:-4px;
 }
 .link01 a:hover{
 	text-decoration:none;

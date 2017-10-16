@@ -32,12 +32,8 @@ $(document).ready(function() {
 
 	});
 
-	// #mt: check iframe type and add wrap div
-	$('iframe[src*="youtube"]').wrap("<div class='ytb_embed'></div>");
-	$('iframe[src*="vimeo"]').wrap("<div class='ytb_embed'></div>");
-	$('.instagram-media').wrap("<div class='instagram-wrapper'></div>");
-	$('.twitter-tweet').wrap("<div class='twitter_quote clearfix'></div>");
-	$('.twitter-tweet').addClass("tw-align-center");
+
+
 });
 
 
@@ -79,6 +75,15 @@ $(window).bind("load",function(){
     if($searchInput.val().length > 0){
       return false;
     } else {
+
+
+	 /* if($searchTrigger.hasClass("active")){
+			$searchTrigger.removeClass('active');
+		}
+		else{
+			$searchTrigger.addClass('active');
+		}
+     */
     }
 
   });
@@ -92,12 +97,3 @@ $(window).bind("load",function(){
   });
 
 });
-
-
-$(window).bind("load",function(){
-	  "use strict";
-	  $('#sidebar-widget-sticky').theiaStickySidebar({
-						additionalMarginTop: 110
-					});
-	
-	});

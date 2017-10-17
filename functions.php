@@ -391,3 +391,18 @@ function disable_seo_metabox(){
     remove_meta_box('wpseo_meta', 'post', 'normal');
     remove_meta_box('wpseo_meta', 'page', 'normal');
 }
+
+// Alter the Text label of Excerpt Box
+add_filter( 'gettext', 'wpse22764_gettext', 10, 2 );
+function wpse22764_gettext( $translation, $original )
+{
+  if ( 'Excerpt' == $original ) {
+      return 'タイトル下の吹き出し文章';
+  }else{
+    $pos = strpos($original, 'Excerpts are optional hand-crafted summaries of your');
+    if ($pos !== false) {
+        return  '';
+    }
+  }
+  return $translation;
+}

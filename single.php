@@ -87,7 +87,7 @@
             <?php   } // end check post thumbnail
 				} else {  // else: check has video or not ?>
 					<div class="video_section">
-				<?php if($choose_video_to_display == "your-video") {
+				<?php if($self_video != "") {
 						// 1.0 Self Hosted Video
 						if($self_video!="") { ?>
 							<video width="100%" height="auto" controls>
@@ -97,19 +97,23 @@
 						<?php } 
 					}
 					
-					if($choose_video_to_display == "vimeo") {
+					else if($vimeo_url != "") {
 						// 1.1 Vimeo
-		                if(preg_match('/https:\/\/(www\.)*vimeo\.com\/.*/',$vimeo_url)){ ?>
-		            		<iframe src="https://player.vimeo.com/video/57399324" width="100%" height="auto" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+						$vimeo_arr = explode("/", $vimeo_url);
+						if(preg_match('/https:\/\/(www\.)*vimeo\.com\/.*/',$vimeo_url)){ ?>
+		            		<iframe src="https://player.vimeo.com/video/<?php echo $vimeo_arr[3]; ?>" width="100%" height="auto" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 		            	<?php } 
 		            }
 
-		            if($choose_video_to_display == "youtube") {
+		       		else if($youtube_url != "") {
 		            	// 1.2 Youtube 
+		            	$ytb_arr = explode("?v=", $youtube_url);
 		            	if(preg_match('/https:\/\/(www\.)*youtube\.com\/.*/',$youtube_url)){ ?>
-		            		<iframe width="100%" src="https://www.youtube.com/embed/jovTHH9yrHY" frameborder="0" allowfullscreen></iframe>
+		            		<iframe width="100%" src="https://www.youtube.com/embed/<?php echo $ytb_arr[1]; ?>" frameborder="0" allowfullscreen></iframe>
 		           		 <?php } 
-		            } ?>
+		        	} else {
+		        		// nothing
+		        	}?>
 	            	</div> 
 	            <?php }  // end: check has video or not ?>
 			

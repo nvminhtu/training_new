@@ -173,6 +173,7 @@ function wp_admin_bar_my_custom_account_menu( $wp_admin_bar ) {
   $user_id = get_current_user_id();
   $current_user = wp_get_current_user();
   $profile_url = get_edit_profile_url( $user_id );
+  $profile_fullname = get_field('profile_fullname', 'user_'. $user_id);
 
   if ( 0 != $user_id ) {
     /* Add the "My Account" menu */
@@ -182,7 +183,7 @@ function wp_admin_bar_my_custom_account_menu( $wp_admin_bar ) {
     $u_lastname = $current_user->user_lastname;
     $u_displayname = $u_lastname.' '.$u_firstname;
 
-    $howdy = sprintf( __('Welcome, %1$s'), $u_displayname );
+    $howdy = sprintf( __('Welcome, %1$s'), $profile_fullname );
     $class = empty( $avatar ) ? '' : 'with-avatar';
 
     $my_account = $wp_admin_bar->get_node( 'my-account' );
@@ -348,6 +349,20 @@ function modify_contact_methods($profile_fields) {
 
   return $profile_fields;
 }
+
+// Hide User fields in Wordperss User contact
+function remove_website_row_wpse_94963() {
+    echo "<script>jQuery(document).ready(function(){
+          jQuery('#url').parents('tr').css('display','none');
+          jQuery('#last_name').parents('tr').css('display','none');
+          jQuery('#first_name').parents('tr').css('display','none');
+      });
+    </script>";
+    
+}
+add_action('admin_head-user-edit.php','remove_website_row_wpse_94963');
+add_action('admin_head-profile.php','remove_website_row_wpse_94963');
+add_action('admin_head-user-new.php','remove_website_row_wpse_94963');
 
 // Returns true if user has specific role 
 function check_user_role( $role, $user_id = null ) {

@@ -819,7 +819,7 @@ border-radius: 28px;}
 	height:30px;
 	content:"＞";
 	left:-30px;
-	top:-4px;
+	top: calc(50% - 10px);
 }
 .link01 a:hover{
 	text-decoration:none;

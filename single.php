@@ -87,25 +87,20 @@
             <?php   } // end check post thumbnail
 				} else {  // else: check has video or not ?>
 					<div class="video_section">
-				<?php if($self_video != "") {
-						// 1.0 Self Hosted Video
-						if($self_video!="") { ?>
-							<video width="100%" height="auto" controls>
-							  	<source src="<?php echo $self_video; ?>" type="video/mp4">
-							  	Your browser does not support the video tag.
-							</video>		
-						<?php } 
-					}
-					
-					else if($vimeo_url != "") {
+				<?php if($choose_video_to_display == "your-video") { 
+						// 1.0 Self Hosted Video ?>
+						<video width="100%" height="auto" controls>
+						  	<source src="<?php echo $self_video; ?>" type="video/mp4">
+						  	Your browser does not support the video tag.
+						</video>		
+						<?php 
+					} else if($choose_video_to_display == "vimeo") {
 						// 1.1 Vimeo
 						$vimeo_arr = explode("/", $vimeo_url);
 						if(preg_match('/https:\/\/(www\.)*vimeo\.com\/.*/',$vimeo_url)){ ?>
 		            		<iframe src="https://player.vimeo.com/video/<?php echo $vimeo_arr[3]; ?>" width="100%" height="auto" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 		            	<?php } 
-		            }
-
-		       		else if($youtube_url != "") {
+		            } else if($choose_video_to_display == "youtube") {
 		            	// 1.2 Youtube 
 		            	$ytb_arr = explode("?v=", $youtube_url);
 		            	if(preg_match('/https:\/\/(www\.)*youtube\.com\/.*/',$youtube_url)){ ?>
@@ -113,7 +108,7 @@
 		           		 <?php } 
 		        	} else {
 		        		// nothing
-		        	}?>
+		        	} ?>
 	            	</div> 
 	            <?php }  // end: check has video or not ?>
 			

@@ -406,3 +406,10 @@ function wpse22764_gettext( $translation, $original )
   }
   return $translation;
 }
+
+// Check length of field in wordpress
+add_action('admin_footer', 'custom_admin_js');
+function custom_admin_js() {
+    $url = get_bloginfo('template_directory') . '/js/custom-admin.js';
+    echo '"<script type="text/javascript" src="'. $url . '"></script>"';
+}

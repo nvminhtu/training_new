@@ -8,3 +8,11 @@
 	border: 1px solid #DDDDDD;
 	padding: 10px;
 }
+
+.form-table > tbody > #notify_intro.acf-field > .acf-input {
+	padding: 0px 5% 0px 10px;
+}
+
+.form-table > tbody > #field_introduction.acf-field > .acf-input {
+	padding: 15px 5% 0px 10px;
+}

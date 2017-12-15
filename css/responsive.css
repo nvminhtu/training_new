@@ -30,7 +30,9 @@ img {
 }
 /*header */
 
-
+#main {
+	padding-top: 60px;
+}
 /*main index */
 #main_visual {
 	height: auto;

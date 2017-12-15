@@ -413,3 +413,25 @@ function custom_admin_js() {
     $url = get_bloginfo('template_directory') . '/js/custom-admin.js';
     echo '"<script type="text/javascript" src="'. $url . '"></script>"';
 }
+
+/* check if user using smaller mobile device */
+function my_wp_is_mobile() {
+  include_once ( get_template_directory() . '/includes/mobile-detect.php');
+  $detect = new Mobile_Detect;
+  if( $detect->isMobile() && !$detect->isTablet() ) {
+  return true;
+  } else {
+    return false;
+  }
+}
+
+/* check if user using tablet device */
+function my_wp_is_tablet() {
+  include_once ( get_template_directory() . '/includes/mobile-detect.php');
+  $detect = new Mobile_Detect;
+  if( $detect->isTablet() ) {
+    return true;
+  } else {
+    return false;
+  }
+}
